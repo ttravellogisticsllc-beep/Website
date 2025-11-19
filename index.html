@@ -1,652 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>TTravel Logistics LLC | Cargo Van Delivery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="TTravel Logistics LLC provides reliable cargo van delivery service in the Midwest with a 2024 RAM ProMaster and transparent flat rates."
-  />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTravel Logistics LLC</title>
 
-  <style>
-    :root {
-      --blue: #0b1b2f;
-      --blue-soft: #142844;
-      --green: #1fa57a;
-      --silver: #e2e6ec;
-      --text-main: #ffffff;
-      --text-muted: #c5c9d3;
-      --max-width: 1100px;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1f33;
+    color: white;
+    line-height: 1.5;
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-    }
+  header {
+    padding: 25px;
+    text-align: center;
+    background: #0f2d4a;
+    border-bottom: 2px solid #1c3e60;
+  }
 
-    body {
-      background: radial-gradient(circle at top, #223a5d, #050915);
-      color: var(--text-main);
-      min-height: 100vh;
-    }
+  header h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
 
-    .page {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
+  header p {
+    margin: 5px 0 0 0;
+    color: #d0d7df;
+  }
 
-    header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+  }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+  .section {
+    background: #10273d;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #1d3955;
+  }
 
-    .brand-name {
-      font-size: 26px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
+  h2 {
+    margin-top: 0;
+    letter-spacing: 1px;
+  }
 
-    .tagline {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
+  .two-col {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-    .contact {
-      text-align: right;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
+  .col {
+    flex: 1;
+    min-width: 320px;
+  }
 
-    .contact strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
+  .rates-table p {
+    margin: 6px 0;
+  }
 
-    .hero-card {
-      background: linear-gradient(135deg, var(--blue-soft), #090f1f);
-      border-radius: 18px;
-      padding: 20px 20px 18px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-      gap: 16px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(226, 230, 236, 0.16);
-    }
+  .van-img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
 
-    .hero-copy h1 {
-      font-size: 22px;
-      margin-bottom: 6px;
-    }
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+  }
 
-    .hero-copy p {
-      font-size: 14px;
-      color: var(--text-muted);
-      max-width: 460px;
-      line-height: 1.6;
-    }
+  .button {
+    margin-top: 15px;
+    padding: 14px;
+    background: #1fa860;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+  }
 
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
+  .button:hover {
+    opacity: 0.85;
+  }
 
-    .badge {
-      border-radius: 999px;
-      border: 1px solid rgba(226, 230, 236, 0.25);
-      padding: 4px 10px;
-      font-size: 12px;
-      color: var(--silver);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(4, 10, 20, 0.55);
-    }
+  .note {
+    font-size: 13px;
+    color: #cbd4df;
+    margin-top: 5px;
+  }
+</style>
 
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--green);
-    }
+<script>
+function sendRequest() {
+  let name = document.getElementById("name").value;
+  let company = document.getElementById("company").value;
+  let phone = document.getElementById("phone").value;
+  let email = document.getElementById("email").value;
+  let pu = document.getElementById("pickup").value;
+  let del = document.getElementById("delivery").value;
+  let details = document.getElementById("details").value;
 
-    .van-card {
-      background: #060c18;
-      border-radius: 16px;
-      padding: 14px 14px 12px;
-      border: 1px solid rgba(226, 230, 236, 0.18);
-    }
+  let body =
+    "Pickup Request Details:\n\n" +
+    "Name: " + name + "\n" +
+    "Company: " + company + "\n" +
+    "Phone: " + phone + "\n" +
+    "Email: " + email + "\n" +
+    "Pickup: " + pu + "\n" +
+    "Delivery: " + del + "\n" +
+    "Details: " + details;
 
-    .van-title {
-      font-size: 14px;
-      margin-bottom: 4px;
-      color: var(--silver);
-    }
+  window.location.href =
+    "mailto:ttravellogisticsllc@gmail.com"
+    + "?subject=Delivery Request"
+    + "&body=" + encodeURIComponent(body);
+}
+</script>
 
-    .van-main {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .van-text {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .van-text strong {
-      color: var(--text-main);
-    }
-
-    .van-pill {
-      border-radius: 999px;
-      padding: 4px 10px;
-      border: 1px solid rgba(226, 230, 236, 0.25);
-      font-size: 12px;
-      color: var(--silver);
-    }
-
-    .van-illustration {
-      width: 110px;
-      height: 62px;
-      border-radius: 12px;
-      background: linear-gradient(145deg, #f2f4f7, #cbd2dd);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .van-body {
-      position: absolute;
-      left: 6px;
-      bottom: 12px;
-      width: 92px;
-      height: 32px;
-      background: #fdfdfd;
-      border-radius: 6px;
-      box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
-    }
-
-    .van-cab {
-      position: absolute;
-      left: 8px;
-      bottom: 18px;
-      width: 30px;
-      height: 24px;
-      background: #fdfdfd;
-      border-radius: 6px 6px 4px 4px;
-    }
-
-    .van-window {
-      position: absolute;
-      left: 11px;
-      bottom: 21px;
-      width: 20px;
-      height: 13px;
-      background: #111827;
-      border-radius: 4px;
-    }
-
-    .van-wheel {
-      position: absolute;
-      bottom: 6px;
-      width: 12px;
-      height: 12px;
-      background: #111827;
-      border-radius: 999px;
-    }
-
-    .van-wheel::after {
-      content: "";
-      display: block;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #4b5563;
-      margin: 3px;
-    }
-
-    .wheel-front {
-      left: 20px;
-    }
-
-    .wheel-back {
-      left: 62px;
-    }
-
-    .van-brand {
-      position: absolute;
-      bottom: 5px;
-      left: 38px;
-      font-size: 7px;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: #111827;
-      background: #cdd2dd;
-      padding: 1px 4px;
-      border-radius: 999px;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: rgba(6, 12, 24, 0.94);
-      border-radius: 16px;
-      padding: 16px 18px 14px;
-      border: 1px solid rgba(226, 230, 236, 0.22);
-    }
-
-    .card h2 {
-      font-size: 17px;
-      margin-bottom: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .rate-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      row-gap: 8px;
-      column-gap: 8px;
-      font-size: 14px;
-    }
-
-    .rate-label {
-      color: var(--silver);
-    }
-
-    .rate-value {
-      text-align: right;
-      font-weight: 600;
-      color: #f9fafb;
-    }
-
-    .rate-note {
-      grid-column: 1 / 3;
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-
-    .divider {
-      border-top: 1px solid rgba(226, 230, 236, 0.18);
-      margin: 10px 0;
-    }
-
-    .list {
-      list-style: none;
-      font-size: 13px;
-      color: var(--text-muted);
-      display: grid;
-      gap: 6px;
-    }
-
-    .list strong {
-      color: var(--text-main);
-      font-weight: 600;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(12, 83, 62, 0.18);
-      border: 1px solid rgba(31, 165, 122, 0.6);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--silver);
-    }
-
-    .form {
-      display: grid;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .field {
-      display: grid;
-      gap: 4px;
-      font-size: 13px;
-    }
-
-    label {
-      color: var(--silver);
-    }
-
-    input,
-    textarea,
-    select {
-      background: #020817;
-      border-radius: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      padding: 8px 10px;
-      color: var(--text-main);
-      font-size: 13px;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      outline: 1px solid var(--green);
-      border-color: var(--green);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 70px;
-    }
-
-    .form-note {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    .button-row {
-      display: flex;
-      justify-content: flex-start;
-      gap: 8px;
-      margin-top: 4px;
-      align-items: center;
-    }
-
-    button {
-      border-radius: 999px;
-      border: none;
-      padding: 9px 18px;
-      background: linear-gradient(135deg, var(--green), #36c692);
-      color: #041016;
-      font-weight: 600;
-      font-size: 13px;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
-    }
-
-    button:hover {
-      opacity: 0.96;
-      transform: translateY(-1px);
-    }
-
-    .button-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-    footer {
-      max-width: var(--max-width);
-      margin: 22px auto 10px;
-      padding: 0 16px 6px;
-      font-size: 11px;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      border-top: 1px solid rgba(148, 163, 184, 0.45);
-      padding-top: 10px;
-    }
-
-    @media (max-width: 800px) {
-      header {
-        align-items: flex-start;
-      }
-      .contact {
-        text-align: left;
-      }
-      .hero-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .brand-name {
-        font-size: 22px;
-      }
-      .hero-copy h1 {
-        font-size: 19px;
-      }
-    }
-  </style>
 </head>
-
 <body>
-  <div class="page">
-    <header>
-      <div class="brand">
-        <div class="brand-name">TTRAVEL LOGISTICS LLC</div>
-        <div class="tagline">Delivering reliability one mile at a time.</div>
-      </div>
-      <div class="contact">
-        <div><strong>Call</strong> 312 985 6760</div>
-        <div><strong>Email</strong> ttravellogisticsllc@gmail.com</div>
-        <div>MC 1741039 | DOT 4426346</div>
-      </div>
-    </header>
 
-    <section class="hero-card">
-      <div class="hero-copy">
-        <h1>Cargo van delivery you can count on</h1>
-        <p>
-          TTravel Logistics LLC moves critical parts and freight with a
-          dedicated 2024 RAM ProMaster. One van, one driver, clear pricing.
-          No surprises. No excuses.
-        </p>
+<header>
+  <h1>TTRAVEL LOGISTICS LLC</h1>
+  <p>Delivering reliability one mile at a time.</p>
+  <p>MC 1741039 | DOT 4426346</p>
+  <p>312-985-6760 • ttravellogisticsllc@gmail.com</p>
+</header>
 
-        <div class="badges">
-          <span class="badge">
-            <span class="badge-dot"></span>
-            Dedicated 2024 RAM ProMaster
-          </span>
-          <span class="badge">
-            <span class="badge-dot"></span>
-            2,500 pound cargo capacity
-          </span>
-          <span class="badge">
-            <span class="badge-dot"></span>
-            Same day hot shot options
-          </span>
-        </div>
-      </div>
+<div class="container">
 
-      <aside class="van-card">
-        <div class="van-title">Equipment on every run</div>
-        <div class="van-main">
-          <div class="van-text">
-            <strong>2024 RAM ProMaster</strong><br />
-            Cargo van | 2,500 pound capacity<br />
-            Ideal for auto parts, medical, and light freight
-            <div class="van-pill">Cargo Van Only</div>
-          </div>
-          <div class="van-illustration" aria-hidden="true">
-            <div class="van-body"></div>
-            <div class="van-cab"></div>
-            <div class="van-window"></div>
-            <div class="van-wheel wheel-front"></div>
-            <div class="van-wheel wheel-back"></div>
-            <div class="van-brand">TTRAVEL</div>
-          </div>
-        </div>
-      </aside>
-    </section>
+  <!-- VAN + SERVICES -->
+  <div class="section two-col">
+    <div class="col">
+      <h2>Cargo van delivery you can count on</h2>
+      <p>
+        TTravel Logistics LLC moves auto parts, medical freight,
+        dealership transfers, and time-sensitive materials with a
+        2024 RAM ProMaster cargo van. One van, one driver, clear pricing.
+      </p>
 
-    <main>
-      <section class="card">
-        <h2>Cargo Van Rate Sheet</h2>
+      <p>• Dedicated 2024 RAM ProMaster</p>
+      <p>• 2,500 lb cargo capacity</p>
+      <p>• Same-day hot shot options</p>
+    </div>
 
-        <div class="rate-grid">
-          <div class="rate-label">Base Rate</div>
-          <div class="rate-value">63 dollars minimum</div>
-          <div class="rate-note">
-            Applies to all deliveries.
-          </div>
-
-          <div class="rate-label">Mileage Rate</div>
-          <div class="rate-value">2.13 dollars per loaded mile</div>
-          <div class="rate-note">
-            Mileage is calculated from pickup to delivery location.
-          </div>
-
-          <div class="rate-label">After Hours Fee</div>
-          <div class="rate-value">33 dollars</div>
-          <div class="rate-note">
-            Applies to trips that start outside of 7 AM to 5 PM.
-          </div>
-
-          <div class="rate-label">Weekend Fee</div>
-          <div class="rate-value">53 dollars</div>
-          <div class="rate-note">
-            Saturday and Sunday deliveries.
-          </div>
-
-          <div class="rate-label">Holiday Fee</div>
-          <div class="rate-value">95 dollars</div>
-
-          <div class="rate-label">Hot Shot or Rush Fee</div>
-          <div class="rate-value">40 dollars</div>
-          <div class="rate-note">
-            Immediate or same hour pickups.
-          </div>
-        </div>
-
-        <div class="divider"></div>
-
-        <ul class="list">
-          <li>
-            <strong>Service area</strong> Midwest and regional lanes with a
-            focus on Wisconsin and surrounding states.
-          </li>
-          <li>
-            <strong>Freight type</strong> general freight, auto parts,
-            medical supplies that do not require refrigeration, and light
-            commercial cargo within van capacity.
-          </li>
-        </ul>
-
-        <div class="pill-row">
-          <div class="pill">Cargo Van Only</div>
-          <div class="pill">Direct Shipper Friendly</div>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2>Request a Pickup</h2>
-
-        <p class="form-note">
-          Send your load details and you will get a direct reply with
-          confirmation and an estimated time of arrival.
-        </p>
-
-        <!-- This uses email to send booking details.
-             It opens a new message in the visitors mail app. -->
-        <form
-          class="form"
-          action="mailto:ttravellogisticsllc@gmail.com"
-          method="post"
-          enctype="text/plain"
-        >
-          <div class="field">
-            <label for="name">Your name</label>
-            <input id="name" name="Name" required />
-          </div>
-
-          <div class="field">
-            <label for="company">Company</label>
-            <input id="company" name="Company" />
-          </div>
-
-          <div class="field">
-            <label for="phone">Best call back number</label>
-            <input id="phone" name="Phone" />
-          </div>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" />
-          </div>
-
-          <div class="field">
-            <label for="pickup">Pickup city and state</label>
-            <input id="pickup" name="Pickup location" required />
-          </div>
-
-          <div class="field">
-            <label for="delivery">Delivery city and state</label>
-            <input id="delivery" name="Delivery location" required />
-          </div>
-
-          <div class="field">
-            <label for="cargo">Cargo details</label>
-            <textarea
-              id="cargo"
-              name="Cargo details"
-              placeholder="Weight, pieces, pallet count, special handling, dock or ground, etc."
-              required
-            ></textarea>
-          </div>
-
-          <div class="field">
-            <label for="time">Requested pickup time</label>
-            <input
-              id="time"
-              name="Requested pickup time"
-              placeholder="Example today at 2 PM"
-            />
-          </div>
-
-          <div class="field">
-            <label for="reference">Reference or load number</label>
-            <input id="reference" name="Reference" />
-          </div>
-
-          <div class="button-row">
-            <button type="submit">Send booking request</button>
-            <span class="button-sub">
-              Or call 312 985 6760 for immediate dispatch.
-            </span>
-          </div>
-        </form>
-      </section>
-    </main>
+    <div class="col">
+      <h3>Equipment on every run</h3>
+      <p><strong>2024 RAM ProMaster</strong></p>
+      <p>Ideal for auto parts, medical, and light freight</p>
+      <img class="van-img" src="https://i.imgur.com/7U9h0oR.png" alt="Cargo Van">
+    </div>
   </div>
 
-  <footer>
-    <div>© <span id="year"></span> TTravel Logistics LLC</div>
-    <div>MC 1741039 | DOT 4426346 | 2024 RAM ProMaster cargo van</div>
-  </footer>
+  <!-- RATE SHEET -->
+  <div class="section">
+    <h2>CARGO VAN RATE SHEET</h2>
 
-  <script>
-    // Set current year in footer
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
-</body>
-</html>
+    <div class="rates-table">
+
+      <p><strong>Base Rate:</strong> 63 dollars minimum</p>
+      <p>Applies to all deliveries.</p>
+
+      <p><strong>Mileage Rate:</strong> 2.13 dollars per loaded mile</p>
+      <p>Mileage from pickup to delivery location.</p>
+
+      <p><strong>After Hours Fee:</strong> 33 dollars</p>
+      <p>Trips outside 7 AM to 5 PM.</p>
+
+      <p><strong>Weekend Fee:</strong> 53 dollars</p>
+      <p>Saturday and Sunday deliveries.</p>
+
+      <p><strong>Holiday Fee:</strong> 95 dollars</p>
+
+      <p><strong>Hot Shot /
